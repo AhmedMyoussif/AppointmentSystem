@@ -1,0 +1,36 @@
+using Appointment.Domain.Common;
+
+namespace Appointment.Application.Common.Errors;
+public static class ApplicationErrors
+{
+    public static readonly Error InvalidCredentials = 
+        Error.Validation("Auth.InvalidCredentials", "The email or password provided is incorrect.");
+
+    public static readonly Error EmailAlreadyExists = 
+        Error.Conflict("Auth.EmailConflict", "A user with this email already exists.");
+
+    public static readonly Error UnauthorizedAccess = 
+        Error.Failure("Auth.Unauthorized", "You are not authorized to perform this action.");
+
+
+    public static readonly Error UserNotFound = 
+        Error.NotFound("User.NotFound", "The requested user profile was not found.");
+
+    public static readonly Error ProviderNotFound = 
+        Error.NotFound("Provider.NotFound", "The specified service provider does not exist.");
+
+    public static readonly Error ServiceNotFound = 
+        Error.NotFound("Service.NotFound", "The requested service does not exist.");
+
+    public static readonly Error AppointmentNotFound = 
+        Error.NotFound("Appointment.NotFound", "The requested appointment was not found.");
+
+    public static readonly Error TimeSlotNotFound = 
+        Error.NotFound("TimeSlot.NotFound", "The selected time slot does not exist or has been deleted.");
+
+    public static readonly Error TimeSlotAlreadyBooked = 
+        Error.Conflict("Appointment.SlotAlreadyBooked", "This time slot has just been booked by another customer.");
+
+    public static readonly Error ProviderNotAvailable = 
+        Error.Failure("Provider.Unavailable", "The provider is not accepting appointments on the selected date.");
+}
