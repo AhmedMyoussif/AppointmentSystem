@@ -2,7 +2,7 @@ using Appointment.Domain.Common;
 using Appointment.Domain.Common.Results;
 using Appointment.Domain.Identity;
 
-namespace Appointment.Domain.User; 
+namespace Appointment.Domain.Users; 
 public sealed class User : AuditableEntity
 {
     public string FirstName { get;private set; }

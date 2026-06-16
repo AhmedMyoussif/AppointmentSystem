@@ -1,6 +1,6 @@
 using Appointment.Domain.Common;
 
-namespace Appointment.Domain.User;
+namespace Appointment.Domain.Users;
 
 
 public static class UserErrors

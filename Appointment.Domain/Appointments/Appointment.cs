@@ -1,8 +1,9 @@
 using Appointment.Domain.Common;
 using Appointment.Domain.Common.Results;
 using Appointment.Domain.Services;
+using Appointment.Domain.Users;
 
-namespace Appointment.Domain.Appointments; 
+namespace Appointment.Domain; 
 
 public class Appointment : AuditableEntity
 {
@@ -13,7 +14,7 @@ public class Appointment : AuditableEntity
     public Guid TimeSlotId { get; private set; }
 
     // Navigation Properties
-    public User.User Customer { get; private set; }
+    public User Customer { get; private set; }
     public Service Service { get; private set; }
 
     // Date & Time

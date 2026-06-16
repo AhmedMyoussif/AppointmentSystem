@@ -1,4 +1,4 @@
-namespace Appointment.Domain.Appointments;
+namespace Appointment.Domain;
 
 public enum AppointmentStatus
 {

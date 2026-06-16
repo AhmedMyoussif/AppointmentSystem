@@ -1,5 +1,6 @@
 using Appointment.Domain.Common;
 using Appointment.Domain.Common.Results;
+using Appointment.Domain.Users;
 
 namespace Appointment.Domain.Services; 
 
@@ -10,7 +11,7 @@ public class Service : AuditableEntity
     public decimal Price { get; private set; }
 
     public Guid ProviderId { get; private set; }
-    public User.User Provider { get; private set; }
+    public User Provider { get; private set; }
 
     private readonly List<ServiceCategory> _serviceCategories = new();
     public IReadOnlyCollection<ServiceCategory> ServiceCategories => _serviceCategories.AsReadOnly();
