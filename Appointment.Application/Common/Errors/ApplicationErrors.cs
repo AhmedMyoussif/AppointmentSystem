@@ -33,4 +33,13 @@ public static class ApplicationErrors
 
     public static readonly Error ProviderNotAvailable = 
         Error.Failure("Provider.Unavailable", "The provider is not accepting appointments on the selected date.");
+
+    public static readonly Error CategoryNameAlreadyExists = 
+        Error.Conflict("Category.NameConflict", "A category with this name already exists.");
+
+    public static readonly Error CategoryNotFound =
+        Error.NotFound("Category.NotFound", "The requested category was not found.");
+
+    public static readonly Error CategoryCannotBeDeletedWithActiveServices =
+        Error.Failure("Category.DeleteFailed", "Cannot delete category because it has active services linked to it.");
 }
