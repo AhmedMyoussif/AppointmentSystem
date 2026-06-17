@@ -1,4 +1,4 @@
-namespace Appointment.Application.Features.Appointments.Commands.BookAppointment;
+namespace Appointment.Application.Features.Appointments.Queries;
 
 public sealed record AppointmentDto(Guid Id,
                                     Guid CustomerId,
