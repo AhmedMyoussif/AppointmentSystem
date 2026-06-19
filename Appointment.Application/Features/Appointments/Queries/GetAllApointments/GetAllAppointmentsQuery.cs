@@ -1,0 +1,15 @@
+using Appointment.Application.Common.Interfaces;
+using Appointment.Domain.Common.Results;
+using MediatR;
+
+namespace Appointment.Application.Features.Appointments.Queries;
+
+public sealed record GetAllAppointmentsQuery() : ICachedQuery<Result<List<AppointmentDto>>>
+{
+
+    public string CacheKey => "appointments:all";
+
+    public string[] Tags => ["appointments"];
+
+    public TimeSpan Expiration => TimeSpan.FromMinutes(10);
+}

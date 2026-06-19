@@ -3,6 +3,7 @@ using Appointment.Application.Common.Interfaces;
 using Appointment.Domain.Common.Results;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Hybrid;
 
 namespace Appointment.Application.Features.Appointments.Commands.BookAppointment;
 
@@ -11,10 +12,12 @@ public sealed class BookAppointmentCommandHandler
 {
 
     private readonly IAppDbContext _context;
+    private readonly HybridCache _cache;
 
-    public BookAppointmentCommandHandler(IAppDbContext context)
+    public BookAppointmentCommandHandler(IAppDbContext context, HybridCache cache)
     {
         _context = context;
+        _cache = cache;
     }
     public async Task<Result<Guid>> Handle(BookAppointmentCommand request,
                                            CancellationToken ct)
@@ -63,6 +66,7 @@ public sealed class BookAppointmentCommandHandler
         _context.Appointments.Add(appointmentResult.Value);
         
         await _context.SaveChangesAsync(ct);
+        await _cache.RemoveByTagAsync("appointments", ct);
 
         return appointmentResult.Value.Id;
     }
