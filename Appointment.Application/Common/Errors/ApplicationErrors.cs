@@ -42,4 +42,8 @@ public static class ApplicationErrors
 
     public static readonly Error CategoryCannotBeDeletedWithActiveServices =
         Error.Failure("Category.DeleteFailed", "Cannot delete category because it has active services linked to it.");
+
+
+    public static readonly Error ServiceCannotBeDeletedWithActiveAppointments =
+        Error.Failure("Service.DeleteFailed", "Cannot delete service because it has active appointments linked to it.");
 }

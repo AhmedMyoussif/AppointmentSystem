@@ -45,13 +45,19 @@ public class Service : AuditableEntity
 
     public void AddCategory(Guid categoryId)
     {
-    if (categoryId == Guid.Empty) return;
+        if (categoryId == Guid.Empty) return;
 
-    
-    if (!_serviceCategories.Any(sc => sc.CategoryId == categoryId))
-    {
-        _serviceCategories.Add(new ServiceCategory(this.Id, categoryId));
+        
+        if (!_serviceCategories.Any(sc => sc.CategoryId == categoryId))
+        {
+            _serviceCategories.Add(new ServiceCategory(this.Id, categoryId));
+        }
     }
+    public void Update(string name, string description, decimal price)
+    {
+        if (!string.IsNullOrWhiteSpace(name)) Name = name.Trim();
+        if (price >= 0) Price = price;
+        Description = description;
     }
 
 }
