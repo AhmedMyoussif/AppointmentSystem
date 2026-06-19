@@ -1,11 +1,9 @@
 using MediatR;
 
-namespace MechanicShop.Application.Common.Behaviours;
+namespace Appointment.Application.Common.Behaviors;
 
+using Appointment.Domain.Common;
 using FluentValidation;
-
-using MechanicShop.Domain.Common.Results;
-using MechanicShop.Domain.Common.Results.Abstractions;
 
 public class ValidationBehavior<TRequest, TResponse>(IValidator<TRequest>? validator = null)
     : IPipelineBehavior<TRequest, TResponse>

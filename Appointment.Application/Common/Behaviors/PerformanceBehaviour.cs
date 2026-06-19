@@ -1,14 +1,13 @@
 using System.Diagnostics;
 
-using MechanicShop.Application.Common.Interfaces;
-
 using MediatR;
 
 using Microsoft.Extensions.Logging;
+using Appointment.Application.Common.Interfaces;
 
-namespace MechanicShop.Application.Common.Behaviours;
+namespace Appointment.Application.Common.Behaviors;
 
-public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+public class PerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull
 {
     private readonly Stopwatch _timer;
@@ -16,7 +15,7 @@ public class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequ
     private readonly IUser _user;
     private readonly IIdentityService _identityService;
 
-    public PerformanceBehaviour(
+    public PerformanceBehavior(
         ILogger<TRequest> logger,
         IUser user,
         IIdentityService identityService)

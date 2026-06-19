@@ -1,4 +1,5 @@
 
+using Appointment.Application.Common.Interfaces;
 using MediatR.Pipeline;
 
 using Microsoft.Extensions.Logging;

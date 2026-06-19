@@ -2,9 +2,9 @@ using MediatR;
 
 using Microsoft.Extensions.Logging;
 
-namespace MechanicShop.Application.Common.Behaviours;
+namespace Appointment.Application.Common.Behaviors;
 
-public class UnhandledExceptionBehaviour<TRequest, TResponse>(ILogger<TRequest> logger)
+public class UnhandledExceptionBehavior<TRequest, TResponse>(ILogger<TRequest> logger)
     : IPipelineBehavior<TRequest, TResponse>
     where TRequest : notnull
 {
