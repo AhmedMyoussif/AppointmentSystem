@@ -49,4 +49,10 @@ public static class ApplicationErrors
 
     public static readonly Error TimeSlotOverlapsWithExisting =
         Error.Conflict("TimeSlot.Overlap", "The specified time slot overlaps with an existing time slot for the provider.");
+
+
+    public static readonly Error CannotDeleteBookedTimeSlot =
+        Error.Failure("TimeSlot.DeleteFailed", "Cannot delete the time slot because it has been booked by a customer.");
+
+
 }
