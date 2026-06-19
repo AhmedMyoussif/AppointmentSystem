@@ -46,4 +46,7 @@ public static class ApplicationErrors
 
     public static readonly Error ServiceCannotBeDeletedWithActiveAppointments =
         Error.Failure("Service.DeleteFailed", "Cannot delete service because it has active appointments linked to it.");
+
+    public static readonly Error TimeSlotOverlapsWithExisting =
+        Error.Conflict("TimeSlot.Overlap", "The specified time slot overlaps with an existing time slot for the provider.");
 }
