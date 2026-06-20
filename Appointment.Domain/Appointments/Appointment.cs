@@ -3,7 +3,7 @@ using Appointment.Domain.Common.Results;
 using Appointment.Domain.Services;
 using Appointment.Domain.Users;
 
-namespace Appointment.Domain; 
+namespace Appointment.Domain.Appointments; 
 
 public class Appointment : AuditableEntity
 {
