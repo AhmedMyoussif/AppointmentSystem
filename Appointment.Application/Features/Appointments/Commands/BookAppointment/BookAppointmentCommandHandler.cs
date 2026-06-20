@@ -47,7 +47,7 @@ public sealed class BookAppointmentCommandHandler
            return ApplicationErrors.TimeSlotNotFound;
         }
 
-        var appointmentResult = Domain.Appointment.Create(Guid.NewGuid(),
+        var appointmentResult = Domain.Appointments.Appointment.Create(Guid.NewGuid(),
                                                           request.CustomerId,
                                                           request.ServiceId,
                                                           request.TimeSlotId,

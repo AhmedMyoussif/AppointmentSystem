@@ -12,7 +12,7 @@ namespace Appointment.Application.Common.Interfaces;
 
 public interface IAppDbContext
 {
-    public DbSet<Appointment.Domain.Appointment> Appointments { get; set; }
+    public DbSet<Appointment.Domain.Appointments.Appointment> Appointments { get; set; }
     public DbSet<User> Users { get;  }
     public DbSet<Service> Services { get;  }
     public DbSet<TimeSlot> TimeSlots { get;  } 

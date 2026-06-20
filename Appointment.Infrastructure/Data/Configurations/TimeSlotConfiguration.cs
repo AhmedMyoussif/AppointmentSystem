@@ -27,4 +27,6 @@ public sealed class TimeSlotConfiguration : IEntityTypeConfiguration<TimeSlot>
             .WithMany()
             .HasForeignKey(ts => ts.ProviderId)
             .OnDelete(DeleteBehavior.Restrict);
+
+    }
 }
