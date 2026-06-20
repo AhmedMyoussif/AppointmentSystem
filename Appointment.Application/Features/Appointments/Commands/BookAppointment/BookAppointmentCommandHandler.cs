@@ -1,5 +1,6 @@
 using Appointment.Application.Common.Errors;
 using Appointment.Application.Common.Interfaces;
+using Appointment.Domain.Appointments.Events;
 using Appointment.Domain.Common.Results;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -12,12 +13,12 @@ public sealed class BookAppointmentCommandHandler
 {
 
     private readonly IAppDbContext _context;
-    private readonly HybridCache _cache;
+    private readonly IMediator _mediator;
 
-    public BookAppointmentCommandHandler(IAppDbContext context, HybridCache cache)
+    public BookAppointmentCommandHandler(IAppDbContext context,IMediator mediator)
     {
         _context = context;
-        _cache = cache;
+        _mediator = mediator;
     }
     public async Task<Result<Guid>> Handle(BookAppointmentCommand request,
                                            CancellationToken ct)
@@ -39,7 +40,6 @@ public sealed class BookAppointmentCommandHandler
        }
 
        var timeSlot = await _context.TimeSlots
-       .AsNoTracking()
        .FirstOrDefaultAsync(ts => ts.Id == request.TimeSlotId, ct);
 
         if (timeSlot is null)
@@ -66,7 +66,7 @@ public sealed class BookAppointmentCommandHandler
         _context.Appointments.Add(appointmentResult.Value);
         
         await _context.SaveChangesAsync(ct);
-        await _cache.RemoveByTagAsync("appointments", ct);
+        await _mediator.Publish(new AppointmentCreated(appointmentResult.Value.Id), ct);
 
         return appointmentResult.Value.Id;
     }
