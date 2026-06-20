@@ -55,4 +55,12 @@ public static class ApplicationErrors
         Error.Failure("TimeSlot.DeleteFailed", "Cannot delete the time slot because it has been booked by a customer.");
 
 
+   public static readonly Error ExpiredAccessTokenInvalid =
+        Error.Validation("Auth.ExpiredAccessTokenInvalid", "The expired access token provided is invalid.");
+
+    public static readonly Error UserIdClaimInvalid =
+        Error.Validation("Auth.UserIdClaimInvalid", "The user ID claim in the token is invalid.");
+
+    public static readonly Error RefreshTokenExpired =
+        Error.Validation("Auth.RefreshTokenExpired", "The refresh token has expired or is invalid.");
 }
