@@ -4,7 +4,7 @@ using Appointment.Domain.Identity;
 using Appointment.Domain.Services;
 using Appointment.Domain.TimeSlots;
 using Appointment.Domain.Users;
-using Appointment.Infrastructure.Data.Identity.Policies;
+using Appointment.Infrastructure.Data.Identity;
 using MediatR;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;

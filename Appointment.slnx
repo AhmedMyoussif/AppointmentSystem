@@ -1,2 +1,8 @@
 <Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Appointment.Domain/Appointment.Domain.csproj" />
+    <Project Path="src/Appointment.Application/Appointment.Application.csproj" />
+    <Project Path="src/Appointment.Infrastructure/Appointment.Infrastructure.csproj" />
+    <Project Path="src/Appointment.Api/Appointment.Api.csproj" />
+  </Folder>
 </Solution>
